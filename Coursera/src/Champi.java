@@ -16,26 +16,25 @@ public class Champi {
         System.out.print("Est-ce que votre champignon a un anneau (true : oui, false : non) ? ");
         boolean anneau=clavier.nextBoolean();
         System.out.print("==> Le champignon auquel vous pensez est ");
-        if ((anneau)&&(chapeau)){
-            if (foret){System.out.print("l'amanite tue-mouches");}
-            if (!foret){System.out.print("l'agaric jaunissant");}
-        }
-        if ((!anneau)&&(chapeau)){
-            if (foret){System.out.print("le pied bleu");}
-            if (!foret){System.out.print("le cèpe de Bordeaux");}
-        }
-        if ((anneau)&&(!chapeau)){
-            if (!foret){System.out.print("le coprin chevelu");}
-        }
-        if ((!anneau)&&(!chapeau)){
-            if (foret){System.out.print("la girolle");}
-        }
 
+        if (foret){
+            if (anneau){
+                if (!chapeau)System.out.print("l'amanite tue-mouches");
+            }else{
+                if (chapeau){System.out.print("la girolle");
+                }else if (!chapeau){System.out.print("le cèpe de Bordeaux");
+                }
+            }
+        }else{
+            if (anneau){
+                if (chapeau){
+                    System.out.print("le coprin chevelu");
+                }else{System.out.print("l'agaric jaunissant");
+                }
 
-
+            }else {System.out.print("le pied bleu");
+            }
+        }
     }
-
-
-
 }
        
