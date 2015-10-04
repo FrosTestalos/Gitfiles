@@ -11,28 +11,26 @@ public class Champi {
         boolean lamelles=clavier.nextBoolean();*/
         System.out.print("Est-ce que votre champignon vit en forêt (true : oui, false : non) ? ");
         boolean foret=clavier.nextBoolean();
-        System.out.print("Est-ce que votre champignon a un chapeau convexe (true : oui, false : non) ? ");
-        boolean chapeau=clavier.nextBoolean();
         System.out.print("Est-ce que votre champignon a un anneau (true : oui, false : non) ? ");
         boolean anneau=clavier.nextBoolean();
+        System.out.print("Est-ce que votre champignon a un chapeau convexe (true : oui, false : non) ? ");
+        boolean chapeau=clavier.nextBoolean();
         System.out.print("==> Le champignon auquel vous pensez est ");
 
         if (foret){
             if (anneau){
-                if (!chapeau)System.out.print("l'amanite tue-mouches");
-            }else{
-                if (chapeau){System.out.print("la girolle");
+                if (chapeau){System.out.print("l'amanite tue-mouches");}
+            }else{if (chapeau){System.out.print("le pied bleu");}
+                if (!chapeau){System.out.print("la girolle");
                 }else if (!chapeau){System.out.print("le cèpe de Bordeaux");
                 }
             }
         }else{
             if (anneau){
-                if (chapeau){
+                if (!chapeau){
                     System.out.print("le coprin chevelu");
                 }else{System.out.print("l'agaric jaunissant");
                 }
-
-            }else {System.out.print("le pied bleu");
             }
         }
     }
