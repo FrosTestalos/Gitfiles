@@ -54,17 +54,18 @@ public class Population {
         // ===== PARTIE 3 =====
         System.out.println("\n====---- PARTIE 3 ----====");
         anneeCourante=anneeInitiale;
-        populationCourante=populationInitiale;
         do {
-            int nbb = anneeCourante - anneeInitiale;
-            int n=1;
-            if (2*n*populationInitiale<populationCourante){
-                tauxCroissance=tauxCroissance/2;n++;
-            }
             anneeCourante++;
-
+            int nbb = anneeCourante - anneeInitiale;
             populationCourante = populationInitiale * Math.exp(nbb * tauxCroissance / 100);
-            System.out.println("Population en " + anneeCourante + " : " + df.format(populationCourante)+" taux de croissance : "+tauxCroissance+"%");
+            if (2*populationInitiale<populationCourante){
+                tauxCroissance/=2;
+                anneeInitiale=anneeCourante;
+                populationInitiale=populationCourante;
+                nbb = anneeCourante - anneeInitiale;
+                populationCourante = populationInitiale * Math.exp(nbb * tauxCroissance / 100);
+            }
+            System.out.println("Population en " + anneeCourante + " : " + df.format(populationCourante)+" ; taux de croissance : "+tauxCroissance+"%");
         }while (populationCourante<populationCible);
 
 
